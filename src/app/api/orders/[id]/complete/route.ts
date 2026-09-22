@@ -9,26 +9,26 @@ export async function POST(_: Request, { params }: { params: Promise<{id:string}
 
   const { data: order } = await supabase
     .from('hamper_orders')
-    .select('fulfilment_method,status,hamper_pods(id)')
+    .select('status,fulfilment_method')
     .eq('id',id)
     .single();
-
   if (!order) return NextResponse.json({error:'Order not found'},{status:404});
-  if (order.fulfilment_method === 'green_acres' && !(order.hamper_pods?.length)) {
-    return NextResponse.json({error:'Upload the signed POD before completing a Green Acres delivery.'},{status:400});
+  if (order.status !== 'ready' && order.status !== 'delivered') {
+    return NextResponse.json({error:'Only Ready or Delivered orders can be marked Done.'},{status:400});
   }
 
-  const { error } = await supabase
-    .from('hamper_orders')
-    .update({status:'completed',completed_at:new Date().toISOString()})
-    .eq('id',id);
+  const now = new Date().toISOString();
+  const patch: Record<string,string> = { status:'completed', completed_at:now };
+  if (order.fulfilment_method === 'green_acres') patch.delivered_at = now;
+
+  const { error } = await supabase.from('hamper_orders').update(patch).eq('id',id);
   if (error) return NextResponse.json({error:error.message},{status:400});
 
   await supabase.from('hamper_order_events').insert({
     order_id:id,
     event_type:'completed',
     created_by_user_id:user.id,
-    event_data:{}
+    event_data:{source:'manual_ready_button'}
   });
   return NextResponse.json({ok:true});
 }

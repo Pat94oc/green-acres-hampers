@@ -46,3 +46,4 @@
   .signature-grid{gap:10px 20px;margin-top:10px}
   .signature-line{height:18px}
 }
+.danger-button{border:1px solid #d6aaa4;background:#fff;color:#8a332d;padding:11px 14px;border-radius:8px;font-weight:700;cursor:pointer}.danger-button:hover{background:#f8e1de}.danger-button:disabled{opacity:.5;cursor:not-allowed}.warning-box{background:#fff6dc;border:1px solid #e7d79c;color:#5f5224;padding:12px 14px;border-radius:8px}.form-actions{gap:10px;align-items:center}

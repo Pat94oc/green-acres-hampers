@@ -101,3 +101,12 @@ The bulk POD Edge Function is deployed in Supabase as `hamper-pod-batch` and its
 - Schedule rows now show both **Ready By / Production Due** grouping and the actual delivery date for clarity.
 - Collection dockets now include **Prepared By**, **Collected By**, **Signature**, and **Date / Time** lines.
 - Printed dockets have been tightened further to maximise the chance of staying on one A4 page.
+
+## Stage 7 additions
+
+- Orders can be edited from the Orders list or individual order page.
+- Before production starts, hamper lines and quantities can be changed.
+- After production is logged, order/customer/delivery details remain editable but hamper lines are locked to preserve the production log.
+- Orders can be permanently deleted from the individual order page only while they have no production history and no signed POD.
+- Every Ready order now has a **Mark as Done** button, including directly in the Ready list.
+- Mark as Done moves a Ready order straight into Done; a signed docket can still be uploaded or batch-matched afterwards.
