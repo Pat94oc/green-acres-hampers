@@ -54,7 +54,7 @@ No service-role/secret key belongs in Vercel or the browser for this workflow. T
 
 Use a separate GitHub repository and Vercel project named `green-acres-hampers`. It shares the Supabase backend but is a completely separate web app from Green Acres Dockets.
 
-The Vercel site should not use Vercel Authentication. App login is Supabase Auth.
+The Vercel site should not use Vercel Authentication. App login is Supabase Auth. 
 
 ## Important database rule
 
