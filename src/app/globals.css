@@ -34,3 +34,15 @@
   .signature-line{height:22px}
   @page{size:A4;margin:6mm}
 }
+
+/* Stage 6 date clarity and compact collection docket */
+.schedule-date-note{font-size:12px;color:#69736d;margin-top:4px}
+@media print{
+  .docket-header{padding-bottom:6px;margin-bottom:8px}
+  .docket-two{gap:14px}
+  .docket-table{margin:8px 0}
+  .docket-table th,.docket-table td{padding:5px 6px}
+  .docket-notes{padding:6px 7px;margin:6px 0}
+  .signature-grid{gap:10px 20px;margin-top:10px}
+  .signature-line{height:18px}
+}

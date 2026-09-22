@@ -93,3 +93,11 @@ The bulk POD Edge Function is deployed in Supabase as `hamper-pod-batch` and its
 - Weekly summary cards now show a hamper-by-hamper breakdown for Required, Made, Remaining and DPD Packaging.
 - Signed delivery docket upload/review is merged into the Done page; the old /signed-dockets route redirects to Done.
 - Delivery docket print CSS is tightened for a single A4 page with reduced header, table and signature spacing.
+
+## Stage 6 refinements
+
+- Orders now move automatically to **Ready** as soon as every hamper line is fully produced.
+- Production Schedule calendar arithmetic is UTC-safe and anchored to the **Europe/Dublin** date, avoiding server/timezone drift.
+- Schedule rows now show both **Ready By / Production Due** grouping and the actual delivery date for clarity.
+- Collection dockets now include **Prepared By**, **Collected By**, **Signature**, and **Date / Time** lines.
+- Printed dockets have been tightened further to maximise the chance of staying on one A4 page.
