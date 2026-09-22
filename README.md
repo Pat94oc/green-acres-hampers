@@ -54,7 +54,7 @@ No service-role/secret key belongs in Vercel or the browser for this workflow. T
 
 Use a separate GitHub repository and Vercel project named `green-acres-hampers`. It shares the Supabase backend but is a completely separate web app from Green Acres Dockets.
 
-The Vercel site should not use Vercel Authentication. App login is Supabase Auth. 
+The Vercel site should not use Vercel Authentication. App login is Supabase Auth.
 
 ## Important database rule
 
@@ -66,3 +66,23 @@ Do not run the old Stage 1 standalone schema against the shared project. All liv
 2. Test the complete workflow with genuine orders.
 3. Add delivery-run planning after the core workflow is proven.
 4. Later: batch scan multiple signed POD dockets and automatically attach them by printed hamper order number.
+
+## Stage 4 operational update
+
+Stage 4 adds:
+
+- Production Schedule as the home page, grouped by production-ready date
+- Weekly and daily required / made / remaining hamper totals
+- Previous / current / next week navigation
+- DPD packaging totals
+- Faster partial production controls (+1, +5, Finish Line, custom quantity)
+- Manual Start Production and Complete Production actions
+- Production Log
+- Signed Delivery Dockets bulk upload page
+- Multi-page PDF splitting and per-page AI matching using the printed hamper order number
+- Automatic POD filing and automatic movement to Done when a signed docket is confidently matched
+- Needs Review queue for scans that cannot be matched safely
+
+The bulk POD Edge Function is deployed in Supabase as `hamper-pod-batch` and its source is under `supabase/functions/hamper-pod-batch`.
+
+`tsconfig.json` excludes `supabase/functions/**` because Supabase Edge Functions run on Deno and must not be type-checked by the Next.js/Vercel build.

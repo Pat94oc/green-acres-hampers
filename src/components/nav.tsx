@@ -2,11 +2,13 @@ import Link from 'next/link';
 import { LogoutButton } from './logout-button';
 
 const links = [
-  ['/production', 'Production'],
+  ['/production', 'Production Schedule'],
   ['/in-progress', 'In Progress'],
   ['/ready', 'Ready'],
+  ['/signed-dockets', 'Signed Dockets'],
   ['/done', 'Done'],
   ['/orders', 'Orders'],
+  ['/production-log', 'Production Log'],
 ];
 
 export function Nav({ displayName }: { displayName: string }) {
