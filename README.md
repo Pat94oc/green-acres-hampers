@@ -86,3 +86,10 @@ Stage 4 adds:
 The bulk POD Edge Function is deployed in Supabase as `hamper-pod-batch` and its source is under `supabase/functions/hamper-pod-batch`.
 
 `tsconfig.json` excludes `supabase/functions/**` because Supabase Edge Functions run on Deno and must not be type-checked by the Next.js/Vercel build.
+
+## Stage 5 operational refinements
+
+- Production can now be logged directly from the Production Schedule using +1, +5, Finish Line or a custom quantity.
+- Weekly summary cards now show a hamper-by-hamper breakdown for Required, Made, Remaining and DPD Packaging.
+- Signed delivery docket upload/review is merged into the Done page; the old /signed-dockets route redirects to Done.
+- Delivery docket print CSS is tightened for a single A4 page with reduced header, table and signature spacing.

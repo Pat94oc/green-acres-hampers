@@ -5,7 +5,6 @@ const links = [
   ['/production', 'Production Schedule'],
   ['/in-progress', 'In Progress'],
   ['/ready', 'Ready'],
-  ['/signed-dockets', 'Signed Dockets'],
   ['/done', 'Done'],
   ['/orders', 'Orders'],
   ['/production-log', 'Production Log'],
